@@ -467,3 +467,7 @@ Pre-release
 ```
 
 This project is currently under active development and may introduce breaking changes before version 1.0.0.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

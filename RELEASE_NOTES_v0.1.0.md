@@ -1,6 +1,6 @@
 # Release v0.1.0
 
-First public release of TinderApp.
+First public release of Tindah.
 
 ## Highlights
 

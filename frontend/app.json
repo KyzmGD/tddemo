@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Tinder Clone",
-    "slug": "tinder-clone",
-    "version": "1.0.0",
+    "name": "Tindah",
+    "slug": "tindah-app",
+    "version": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "assetBundlePatterns": ["**/*"],

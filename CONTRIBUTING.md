@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Thank you for your interest in contributing to TinderApp.
+Thank you for your interest in contributing to Tindah.
 
 ## Development Workflow
 

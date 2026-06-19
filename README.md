@@ -1,4 +1,4 @@
-# TinderApp
+# Tindah
 
 A mobile dating application inspired by Tinder, built with **React Native (Expo)**, **Node.js**, **Express.js**, **MongoDB**, and **Socket.IO**.
 

@@ -1,4 +1,4 @@
-# Tinder Clone Backend
+# Tindah Backend
 
 Express + MongoDB API for auth, discovery, swipes, matches, chat messages and Socket.IO realtime events.
 

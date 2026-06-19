@@ -1,4 +1,4 @@
-# Tinder Clone Mobile
+# Tindah App
 
 Expo React Native app for the Tinder-style clone.
 

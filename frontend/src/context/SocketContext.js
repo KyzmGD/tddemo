@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { io } from "socket.io-client";
 import { SOCKET_URL } from "../services/api";
+import { isDemoToken } from "../services/demoAuth";
 import { useAuth } from "./AuthContext";
 
 const SocketContext = createContext(null);
@@ -10,7 +11,7 @@ export function SocketProvider({ children }) {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    if (!token) {
+    if (!token || isDemoToken(token)) {
       setSocket(null);
       return undefined;
     }

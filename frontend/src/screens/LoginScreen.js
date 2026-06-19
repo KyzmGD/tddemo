@@ -3,6 +3,7 @@ import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, View } fr
 import Button from "../components/common/Button";
 import Input from "../components/common/Input";
 import { useAuth } from "../context/AuthContext";
+import { DEMO_EMAIL, DEMO_PASSWORD } from "../services/demoAuth";
 
 export default function LoginScreen() {
   const { signIn, signUp } = useAuth();
@@ -37,6 +38,19 @@ export default function LoginScreen() {
       }
     } catch (submitError) {
       setError(submitError.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const continueAsDemo = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      await signIn(DEMO_EMAIL, DEMO_PASSWORD);
+    } catch (demoError) {
+      setError(demoError.message);
     } finally {
       setLoading(false);
     }
@@ -94,6 +108,14 @@ export default function LoginScreen() {
         {error ? <Text style={styles.error}>{error}</Text> : null}
 
         <Button title={mode === "login" ? "Continue" : "Create account"} loading={loading} onPress={submit} />
+        {mode === "login" ? (
+          <View style={styles.demoAccount}>
+            <Button title="Use demo account" variant="secondary" loading={loading} onPress={continueAsDemo} />
+            <Text style={styles.demoText}>
+              {DEMO_EMAIL} / {DEMO_PASSWORD}
+            </Text>
+          </View>
+        ) : null}
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -147,5 +169,14 @@ const styles = StyleSheet.create({
   error: {
     color: "#ff4458",
     fontWeight: "700",
+  },
+  demoAccount: {
+    gap: 8,
+    alignItems: "center",
+  },
+  demoText: {
+    color: "#777b8d",
+    fontSize: 13,
+    fontWeight: "600",
   },
 });

@@ -11,12 +11,20 @@ const api = axios.create({
   },
 });
 
+let authToken = null;
+
 export function setAuthToken(token) {
+  authToken = token;
+
   if (token) {
     api.defaults.headers.common.Authorization = `Bearer ${token}`;
   } else {
     delete api.defaults.headers.common.Authorization;
   }
+}
+
+export function getAuthToken() {
+  return authToken;
 }
 
 api.interceptors.response.use(

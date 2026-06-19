@@ -2,6 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import * as authApi from "../services/auth.api";
 import { setAuthToken } from "../services/api";
+import { DEMO_TOKEN, demoUser, isDemoCredentials, isDemoToken } from "../services/demoAuth";
 
 const TOKEN_KEY = "tinder_clone_token";
 const USER_KEY = "tinder_clone_user";
@@ -50,6 +51,11 @@ export function AuthProvider({ children }) {
 
   const signIn = useCallback(
     async (email, password) => {
+      if (isDemoCredentials(email, password)) {
+        await persistSession(DEMO_TOKEN, demoUser);
+        return demoUser;
+      }
+
       const data = await authApi.login({ email, password });
       await persistSession(data.token, data.user);
       return data.user;
@@ -74,11 +80,18 @@ export function AuthProvider({ children }) {
   }, []);
 
   const updateProfile = useCallback(async (payload) => {
+    if (isDemoToken(token)) {
+      const nextUser = { ...user, ...payload };
+      setUser(nextUser);
+      await AsyncStorage.setItem(USER_KEY, JSON.stringify(nextUser));
+      return nextUser;
+    }
+
     const data = await authApi.updateMe(payload);
     setUser(data.user);
     await AsyncStorage.setItem(USER_KEY, JSON.stringify(data.user));
     return data.user;
-  }, []);
+  }, [token, user]);
 
   const value = useMemo(
     () => ({

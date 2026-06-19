@@ -304,25 +304,31 @@ EXPO_PUBLIC_SOCKET_URL=
 ### Login Screen
 
 ```text
-Add screenshot here
+<img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/d792b7df-7c97-4883-bdf5-d3c755e2486b" />
+
 ```
 
-### Home Screen
-
-```text
-Add screenshot here
-```
 
 ### Matching Screen
 
 ```text
-Add screenshot here
+<img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/cba8dc79-9568-4797-ba46-014da740de14" />
+
 ```
 
 ### Chat Screen
 
 ```text
-Add screenshot here
+<img width="1919" height="962" alt="image" src="https://github.com/user-attachments/assets/a65a1c67-b20a-4448-863f-fc50ea264469" />
+
+```
+
+### Profile Screen
+
+```text
+<img width="1919" height="963" alt="image" src="https://github.com/user-attachments/assets/fcf57fd7-9464-48b1-95ef-9edce9365eb9" />
+
+
 ```
 
 ---
